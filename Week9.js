@@ -1,22 +1,16 @@
-
-
-function diff(arr1, arr2) {
-
-    var newArray = arr2.concat(arr1);  //first joininng both arrays inn one and storing it in newArray 
-
-    var newestArray = [];
-
-    for (var i=0 ; i<newArray.length ; i++) {  //NOW COMPARING EACH ELEMENT OF  newArray  WITH ARR1 AD ARR2 AND PUSHING NOT SAME VALUES TO newestArray
-        if (arr1.indexOf(newArray[i]) == -1) {
-            newestArray.push(newArray[i]);
-
-            if (arr2.indexOf(newArray[i]) == -1) {
-                newestArray.push(newArray[i]);
-            }
-        }
+function diffArray(arr1, arr2) {
+  var newArr = [];
+  
+  newArr = arr1.concat(arr2); 
+  
+  function checkNum(num) {
+    if (arr1.indexOf(num) === -1 || arr2.indexOf(num) === -1) {
+      return num;
     }
-
-    return newestArray.filter(Boolean);   //It is returning an empty arrray but it should return "pink wool"
+  }
+  
+  return newArr.filter(checkNum);
+  
 }
 
-diff(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]);
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
